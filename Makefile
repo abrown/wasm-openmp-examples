@@ -13,8 +13,10 @@ SYSROOT_FLAGS=--sysroot=$(WASI_SYSROOT)
 OPENMP_DIR := $(PROJECT_DIR)/llvm-project/openmp
 OPENMP_LIB := $(BUILD_DIR)/runtime/src/libomp.a
 
-# Specify a different Wasm engine to invoke with `make WASM_ENGINE=...`.
-WASM_ENGINE=WASMTIME_LOG=wasmtime_runtime::memory=trace,wasmtime_wasi_threads=trace ../wasmtime/target/release/wasmtime
+# Specify a different Wasm engine to invoke with `make WASM_ENGINE=...`. You can prepend the
+# `WASMTIME_LOG=...` bits below if you want to see what Wasmtime is doing under the hood:
+#     WASMTIME_LOG=wasmtime_runtime::memory=trace,wasmtime_wasi_threads=trace
+WASM_ENGINE=../wasmtime/target/release/wasmtime
 
 # The default target--builds and runs everything.
 all: run
