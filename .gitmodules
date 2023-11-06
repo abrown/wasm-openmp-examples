@@ -1,0 +1,5 @@
+[submodule "llvm-project"]
+	path = llvm-project
+	url = https://github.com/abrown/llvm-project
+	branch = wasm-openmp
+	shallow = true
